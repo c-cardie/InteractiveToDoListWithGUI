@@ -26,6 +26,11 @@ body {
     display: flex;
 }
 
+ul {
+  /*removed bullets from unordered list*/
+  list-style-type: none;  
+}
+
 
 
 
