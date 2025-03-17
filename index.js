@@ -27,9 +27,13 @@ Add.addEventListener('click', (event) => {
 
     //create a new li
     const li = document.createElement('li');
+    //create a variable to store checkbox for the task
+    const taskCheck = document.createElement('input');
+    taskCheck.setAttribute("type", "checkbox");
     //create a variable to store text for new task
     const taskText = document.createTextNode(new_task.value);
     //append text to li
+    li.appendChild(taskCheck);
     li.appendChild(taskText);
     //append new li to list
     list.appendChild(li);
