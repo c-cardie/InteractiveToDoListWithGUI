@@ -12,14 +12,15 @@ body {
     align-items: center;
 }
 
+/*
 .buttons {
     margin-bottom: 30px;
-    
     margin: 10px;
     border: 10px;
     padding: 10px;
     
 }
+*/
 
 .task_input {
     display: flex;
