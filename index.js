@@ -32,14 +32,35 @@ Add.addEventListener('click', (event) => {
     taskCheck.setAttribute("type", "checkbox");
     //create a variable to store text for new task
     const taskText = document.createTextNode(new_task.value);
+    //create a variable to store delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.id = "deleteBtn";
+    deleteBtn.innerHTML = "delete";
+    deleteBtn.classList.add("delete");
+    //deleteBtn.disabled = "true";
+    deleteBtn.style.visibility = "hidden";
     //append text to li
     li.appendChild(taskCheck);
     li.appendChild(taskText);
+    li.appendChild(deleteBtn);
     //append new li to list
     list.appendChild(li);
     //make typed task disappear in input box after adding a task
     new_task.value = '';
 } )
+
+//create 'Remove' - a variable that looks for element named 'Remove'
+const Remove = document.getElementById('Remove');
+Remove.addEventListener('click', (event) => {
+
+    //show all tasks' delete buttons
+    //document.getElementById("deleteBtn").style.visibility = "visible";
+    var deleteBtnList = document.querySelectorAll(".delete");
+    for (let i = 0; i < deleteBtnList.length; i++) {
+        deleteBtnList[i].style.visibility = "visible";
+      }
+    //enable the delete buttons
+})
 
 
 
