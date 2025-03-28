@@ -34,7 +34,7 @@ Add.addEventListener('click', (event) => {
     const taskText = document.createTextNode(new_task.value);
     //create a variable to store delete button
     const deleteBtn = document.createElement("button");
-    deleteBtn.id = "deleteBtn";
+    //deleteBtn.id = "deleteBtn";
     deleteBtn.innerHTML = "delete";
     deleteBtn.classList.add("delete");
     //deleteBtn.disabled = "true";
@@ -49,18 +49,43 @@ Add.addEventListener('click', (event) => {
     new_task.value = '';
 } )
 
+
 //create 'Remove' - a variable that looks for element named 'Remove'
 const Remove = document.getElementById('Remove');
 Remove.addEventListener('click', (event) => {
 
     //show all tasks' delete buttons
-    //document.getElementById("deleteBtn").style.visibility = "visible";
     var deleteBtnList = document.querySelectorAll(".delete");
+    var toDoList = document.querySelectorAll('li');
     for (let i = 0; i < deleteBtnList.length; i++) {
         deleteBtnList[i].style.visibility = "visible";
+        deleteBtnList[i].addEventListener("click", (event) => {
+
+            taskToDelete = deleteBtnList[i].parentElement
+            console.log(taskToDelete);
+            taskToDelete.remove();
+    
+        })
       }
-    //enable the delete buttons
 })
+
+
+/*
+//add event listeners to all delete buttons
+//get from LI instead of deleteBtnList!!
+var deleteBtnList = document.querySelectorAll(".delete");
+deleteBtnList.forEach(deleteBtn => {
+    deleteBtn.addEventListener("click", (event) => {
+
+        //access its parent (li)
+        //console.log(deleteBtn.parentElement.nodeName);
+        //delete the li element
+        this.style.visibility = "hidden";
+
+    })
+})
+*/
+
 
 
 
