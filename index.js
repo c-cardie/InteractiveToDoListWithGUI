@@ -65,6 +65,16 @@ Remove.addEventListener('click', (event) => {
       }
 })
 
+//A button to remove all the tasks
+const RemoveAll = document.getElementById("Remove All");
+RemoveAll.addEventListener('click', (event) => {
+
+    var toDoList = document.querySelectorAll('li');
+    for (let i = 0; i < toDoList.length; i++) {
+        toDoList[i].remove();
+    }
+})
+
 
 function save() {
 
