@@ -12,16 +12,6 @@ body {
     align-items: center;
 }
 
-/*
-.buttons {
-    margin-bottom: 30px;
-    margin: 10px;
-    border: 10px;
-    padding: 10px;
-    
-}
-*/
-
 .task_input {
     display: flex;
 }
@@ -30,12 +20,6 @@ ul {
   /*removed bullets from unordered list*/
   list-style-type: none;  
 }
-
-/*
-#deleteBtn {
-    display: none;
-}
-*/
 
 
 

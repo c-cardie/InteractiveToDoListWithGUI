@@ -6,13 +6,10 @@ const list = document.getElementById('list');
 //taskText looks for element named 'new_task' - the input element
 const taskText = document.getElementById('new_task');
 
-var toStorage = [];
-
 //create 'Add' - a variable that looks for element named 'Add'
 //the 'Add' element is the add button
 const Add = document.getElementById('Add');
 Add.addEventListener('click', (event) => {
-    //console.log(new_task.value);
 
     //create a new li
     const li = document.createElement('li');
@@ -35,16 +32,9 @@ Add.addEventListener('click', (event) => {
     //append new li to list
     list.appendChild(li);
 
-    toStorage.push(taskText);
-    //console.log(toStorage);
-    //console.log(toStorage[0]);
-
-   
-
     //make typed task disappear in input box after adding a task
     new_task.value = '';
 } )
-
 
 //create 'Remove' - a variable that looks for element named 'Remove'
 const Remove = document.getElementById('Remove');
@@ -74,86 +64,6 @@ RemoveAll.addEventListener('click', (event) => {
         toDoList[i].remove();
     }
 })
-
-
-function save() {
-
-    //1.) tried iterating over toStorage, but it says it is not an iterable
-    //tasks = Array.from(toStorage.children).map(each => each.innerHTML);
-    //console.log(tasks);
-    //tasksJSON = JSON.stringify(tasks);
-    //console.log(tasksJSON);
-    //tried making it an iterator, but that didn't work either
-    //const iterator = toStorage.entries();
-    //console.log(iterator.next().value, iterator.next().done);
-
-    /*
-    2.) tried stringifying each task individually, then pushing those onto an array
-    var tasksJSON = [];
-
-    for(var i = 0; i<toStorage.length; i++) {
-
-        //console.log(toStorage[i]);
-        stringifiedTask = JSON.stringify(toStorage[i]);
-        tasksJSON.push(stringifiedTask);
-        console.log(tasksJSON);
-
-    }
-    */
-
-    // 3.) stringifying the whole array and storing that in localStorage
-    // for 2.) and 3.) I keep getting output as {}, {} - not the actual strings
-    var str = JSON.stringify(toStorage);
-    localStorage.setItem("savedTasks", str);
-
-}
-
-function getTasks() {
-
-    var str = localStorage.getItem("savedTasks");
-    var fromStorage = JSON.parse(str);
-    console.log(fromStorage);
-
-}
-
-
-window.onload = function() {
-    getTasks();
-}
-
-
-
-
-
-
-
-
-/*
-function saveAll() {
-    //Create an array to store the li values
-    var toStorage = [];
-    var values = document.querySelectorAll('li');
-    //Cycle through the li array
-    for (var i = 0; i < values.length; i++) {
-      toStorage.push(values[i]);
-      console.log(toStorage[i]);
-    }
-
-}
-*/
-
-/*
-function loadAll(array) {
-    for (var i = 0; i < array.length; i++) {
-        list.appendChild(array[i]);
-    }
-    
-  }
-
-window.onload = function() {
-    loadAll();
-}
-*/
 
 
 
